@@ -65,11 +65,17 @@
     "@adonisjs/static": "^1.1.1",
     "@adonisjs/vite": "^4.0.0",
     "@inertiajs/vue3": "^2.0.0",
+    "@radix-icons/vue": "^1.0.0",
     "@vinejs/vine": "^3.0.0",
     "better-sqlite3": "^11.7.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "edge.js": "^6.2.0",
     "luxon": "^3.5.0",
+    "radix-vue": "^1.9.11",
     "reflect-metadata": "^0.2.2",
+    "tailwind-merge": "^2.5.5",
+    "tailwindcss-animate": "^1.0.7",
     "vue": "^3.5.13"
   },
   "hotHook": {
