@@ -20,7 +20,6 @@ import {
   FormLabel,
   FormMessage
 } from '@/components/ui/form'
-import { ReloadIcon } from '@radix-icons/vue'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
@@ -101,8 +100,8 @@ watch(() => props.errors, (errors) => {
               </FormItem>
             </FormField>
           </div>
+
           <Button type="submit" class="w-full">
-            <ReloadIcon v-show="form.isSubmitting" class="w-4 h-4 mr-2 animate-spin" />
             Create an account
           </Button>
         </div>

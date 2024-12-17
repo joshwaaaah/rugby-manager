@@ -1,14 +1,18 @@
 import User from '#models/user'
 
 class UserDto {
-  fullName: string
-  email: string
-  id: number
+  declare fullName: string
+  declare email: string
+  declare id: number
 
-  constructor(user: User) {
-    this.fullName = user.fullName
-    this.email = user.email
-    this.id = user.id
+  constructor(private user: User) {}
+
+  toJson() {
+    return {
+      id: this.user.id,
+      fullName: this.user.fullName,
+      email: this.user.email,
+    }
   }
 }
 

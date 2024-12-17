@@ -15,7 +15,7 @@ const inertiaConfig = defineConfig({
     user: (ctx) => {
       const user = ctx.auth.use('web').user
 
-      return user && new UserDto(user)
+      return user && new UserDto(user).toJson()
     },
     errors: (ctx) => ctx.session?.flashMessages.get('errors') ?? {},
     messages: (ctx) => ctx.session?.flashMessages.all() ?? {},
