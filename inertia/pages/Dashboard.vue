@@ -7,6 +7,7 @@ import { Head } from '@inertiajs/vue3'
 import AuthLayout from '@/layouts/AuthLayout.vue'
 import HeaderAuth from '@/components/HeaderAuth.vue'
 import ListClub from '@/components/ListClub.vue'
+
 defineOptions({
   layout: AuthLayout
 })
