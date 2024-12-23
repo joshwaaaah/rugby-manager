@@ -7,9 +7,7 @@ defineProps<{
 </script>
 
 <template>
-  <main class="min-h-screen flex items-center justify-center">
-    <slot />
-  </main>
+  <slot />
 
   <ToastManager :messages="messages" />
 </template>

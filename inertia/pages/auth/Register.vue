@@ -1,11 +1,3 @@
-<script lang="ts">
-import AuthLayout from '@/layouts/AuthLayout.vue'
-
-export default {
-  layout: AuthLayout
-}
-</script>
-
 <script setup lang="ts">
 import { watch } from 'vue'
 import { Head, router } from '@inertiajs/vue3'
