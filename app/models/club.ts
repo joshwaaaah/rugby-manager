@@ -3,12 +3,18 @@ import { BaseModel, column, hasMany, manyToMany } from '@adonisjs/lucid/orm'
 import type { HasMany, ManyToMany } from '@adonisjs/lucid/types/relations'
 import Team from './team.js'
 import User from './user.js'
-export default class Organisation extends BaseModel {
+export default class Club extends BaseModel {
   @column({ isPrimary: true })
   declare id: number
 
   @column()
   declare name: string
+
+  @column()
+  declare description: string
+
+  @column()
+  declare address: string
 
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime
@@ -19,9 +25,6 @@ export default class Organisation extends BaseModel {
   @hasMany(() => Team)
   declare teams: HasMany<typeof Team>
 
-  @manyToMany(() => User, {
-    pivotTable: 'organisation_users',
-    pivotColumns: ['role_id'],
-  })
+  @manyToMany(() => User)
   declare users: ManyToMany<typeof User>
 }

@@ -1,6 +1,6 @@
 import { DateTime } from 'luxon'
 import { BaseModel, belongsTo, column } from '@adonisjs/lucid/orm'
-import Organisation from './organisation.js'
+import Club from './club.js'
 import type { BelongsTo } from '@adonisjs/lucid/types/relations'
 
 export default class Team extends BaseModel {
@@ -11,7 +11,7 @@ export default class Team extends BaseModel {
   declare name: string
 
   @column()
-  declare organisationId: number
+  declare clubId: number
 
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime
@@ -19,6 +19,6 @@ export default class Team extends BaseModel {
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   declare updatedAt: DateTime
 
-  @belongsTo(() => Organisation)
-  declare organisation: BelongsTo<typeof Organisation>
+  @belongsTo(() => Club)
+  declare club: BelongsTo<typeof Club>
 }

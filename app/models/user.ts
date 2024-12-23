@@ -5,7 +5,7 @@ import { BaseModel, column, manyToMany } from '@adonisjs/lucid/orm'
 import { withAuthFinder } from '@adonisjs/auth/mixins/lucid'
 import { DbAccessTokensProvider } from '@adonisjs/auth/access_tokens'
 import type { ManyToMany } from '@adonisjs/lucid/types/relations'
-import Organisation from './organisation.js'
+import Club from './club.js'
 
 const AuthFinder = withAuthFinder(() => hash.use('scrypt'), {
   uids: ['email'],
@@ -33,9 +33,6 @@ export default class User extends compose(BaseModel, AuthFinder) {
 
   static accessTokens = DbAccessTokensProvider.forModel(User)
 
-  @manyToMany(() => Organisation, {
-    pivotTable: 'organisation_users',
-    pivotColumns: ['role_id'],
-  })
-  declare organisations: ManyToMany<typeof Organisation>
+  @manyToMany(() => Club)
+  declare clubs: ManyToMany<typeof Club>
 }
