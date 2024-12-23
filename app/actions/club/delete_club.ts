@@ -8,10 +8,11 @@ type Params = {
 
 export default class DeleteClub {
   static async handle({ clubId, user }: Params) {
-    const clubToDelete = await Club.find(clubId)
+    const userClubs = user.related('clubs').query()
+    const clubToDelete = userClubs.where('id', clubId)
 
     if (!clubToDelete) {
-      throw new Error('Club not found')
+      throw new Error('Cannot delete club')
     }
 
     await clubToDelete.delete()
