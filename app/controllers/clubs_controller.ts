@@ -8,6 +8,16 @@ import ClubPolicy from '#policies/club_policy'
 import Club from '#models/club'
 
 export default class ClubsController {
+  public async show({ request, inertia }: HttpContext) {
+    const club = await Club.findOrFail(request.param('id'))
+    const teams = await club.related('teams').query()
+
+    return inertia.render('Club', {
+      club,
+      teams,
+    })
+  }
+
   public async store({ request, auth, response }: HttpContext) {
     const data = await request.validateUsing(clubValidator)
 

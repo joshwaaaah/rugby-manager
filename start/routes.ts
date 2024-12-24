@@ -9,6 +9,7 @@
 import router from '@adonisjs/core/services/router'
 import { middleware } from './kernel.js'
 
+const TeamsController = () => import('#controllers/teams_controller')
 const RegisterController = () => import('#controllers/auth/register_controller')
 const LoginController = () => import('#controllers/auth/login_controller')
 const ClubsController = () => import('#controllers/clubs_controller')
@@ -24,5 +25,8 @@ router.post('/register', [RegisterController, 'store'])
 
 router.get('/dashboard', [DashboardController, 'show']).use(middleware.auth())
 
+router.get('/clubs/:id', [ClubsController, 'show']).use(middleware.auth())
 router.post('/clubs', [ClubsController, 'store']).use(middleware.auth())
 router.delete('/clubs/:id', [ClubsController, 'destroy']).use(middleware.auth())
+
+router.post('/teams', [TeamsController, 'store']).use(middleware.auth())
