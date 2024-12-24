@@ -11,7 +11,7 @@ type Params = {
 
 export default class StoreClub {
   static async handle({ user, data }: Params) {
-    const club = await Club.create(data)
+    const club = await Club.create({ ...data, createdBy: user.id })
 
     await this.assignUserToClub(user, club)
 

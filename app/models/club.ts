@@ -14,6 +14,9 @@ export default class Club extends BaseModel {
   declare description: string
 
   @column()
+  declare createdBy: number
+
+  @column()
   declare address: string
 
   @column.dateTime({ autoCreate: true })
