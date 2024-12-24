@@ -23,10 +23,14 @@ router.post('/login', [LoginController, 'store'])
 router.get('/register', [RegisterController, 'show'])
 router.post('/register', [RegisterController, 'store'])
 
-router.get('/dashboard', [DashboardController, 'show']).use(middleware.auth())
+router
+  .group(() => {
+    router.get('/dashboard', [DashboardController, 'show'])
 
-router.get('/clubs/:id', [ClubsController, 'show']).use(middleware.auth())
-router.post('/clubs', [ClubsController, 'store']).use(middleware.auth())
-router.delete('/clubs/:id', [ClubsController, 'destroy']).use(middleware.auth())
+    router.get('/clubs/:id', [ClubsController, 'show'])
+    router.post('/clubs', [ClubsController, 'store'])
+    router.delete('/clubs/:id', [ClubsController, 'destroy'])
 
-router.post('/teams', [TeamsController, 'store']).use(middleware.auth())
+    router.post('/teams', [TeamsController, 'store'])
+  })
+  .middleware(middleware.auth())
