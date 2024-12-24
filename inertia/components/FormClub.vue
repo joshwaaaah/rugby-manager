@@ -43,7 +43,7 @@ watch(() => props.errors, (errors) => {
 
 <template>
   <form @submit.prevent="onSubmit">
-    <FormField v-slot="{ componentField }" name="name">
+    <FormField v-slot="{ componentField }" name="name" :validate-on-blur="false">
       <FormItem class="mb-4">
         <FormLabel>Name</FormLabel>
         <FormControl>
@@ -53,7 +53,7 @@ watch(() => props.errors, (errors) => {
       </FormItem>
     </FormField>
 
-    <FormField v-slot="{ componentField }" name="description">
+    <FormField v-slot="{ componentField }" name="description" :validate-on-blur="false">
       <FormItem class="mb-4">
         <FormLabel>Description</FormLabel>
         <FormControl>
@@ -63,7 +63,7 @@ watch(() => props.errors, (errors) => {
       </FormItem>
     </FormField>
 
-    <FormField v-slot="{ componentField }" name="address">
+    <FormField v-slot="{ componentField }" name="address" :validate-on-blur="false">
       <FormItem class="mb-4">
         <FormLabel>Address</FormLabel>
         <FormControl>
