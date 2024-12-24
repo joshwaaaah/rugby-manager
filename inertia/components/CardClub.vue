@@ -12,7 +12,7 @@ defineProps<{
 
 <template>  
 <div class="relative border rounded p-4 flex items-center gap-4">
-  <div>
+  <div class="hidden md:block">
     <Avatar>
       <AvatarFallback>
         <ShieldHalfIcon class="w-5 h-5" />
